@@ -22,10 +22,10 @@ public class ParquetWriterUtilSpark {
                 .config(conf)
                 .getOrCreate();
 
+        Dataset<Row> peopleDF5 = spark.read().json(jsonFilePath3);
 
-        Dataset<Row> peopleDF6 = spark.read().json(jsonFilePath3);
+        peopleDF5.write().mode(SaveMode.Overwrite).parquet("SampleOutput.parquet");
 
-        peopleDF6.write().mode(SaveMode.Overwrite).parquet("SampleOutput.parquet");
     }
 
     public static String getJsonFilePath() throws IOException {
