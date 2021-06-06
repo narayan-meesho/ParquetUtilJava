@@ -44,10 +44,10 @@ public class ParquetWriterUtilSpark {
 
 
         //creating jsonFile from jsonString , since there is no method from spark lib to read json String directly
-        String jsonString = new ObjectMapper().writeValueAsString(pnPhase2Data);
+        String json = new ObjectMapper().writeValueAsString(pnPhase2Data);
         String jsonFilePath = "jsonInput.json";
         FileWriter file = new FileWriter(jsonFilePath);
-        file.write(jsonString);
+        file.write(json);
         file.flush();
 
         return jsonFilePath;
