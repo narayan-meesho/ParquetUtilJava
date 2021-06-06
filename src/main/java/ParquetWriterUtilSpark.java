@@ -23,9 +23,9 @@ public class ParquetWriterUtilSpark {
                 .getOrCreate();
 
 
-        Dataset<Row> peopleDF = spark.read().json(jsonFilePath3);
+        Dataset<Row> peopleDF6 = spark.read().json(jsonFilePath3);
 
-        peopleDF.write().mode(SaveMode.Overwrite).parquet("SampleOutput.parquet");
+        peopleDF6.write().mode(SaveMode.Overwrite).parquet("SampleOutput.parquet");
     }
 
     public static String getJsonFilePath() throws IOException {
