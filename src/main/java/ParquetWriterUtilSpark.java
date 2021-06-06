@@ -12,7 +12,8 @@ public class ParquetWriterUtilSpark {
 
     public static void main (String args[]) throws IOException {
 
-        String jsonFilePath4 = getJsonFilePath();
+
+        String jsonFilePath3 = getJsonFilePath();
 
         SparkConf conf= new SparkConf().setAppName("Java Spark").setMaster("local[*]");
 
@@ -21,7 +22,8 @@ public class ParquetWriterUtilSpark {
                 .config(conf)
                 .getOrCreate();
 
-        Dataset<Row> peopleDF = spark.read().json(jsonFilePath4);
+
+        Dataset<Row> peopleDF = spark.read().json(jsonFilePath3);
 
         peopleDF.write().mode(SaveMode.Overwrite).parquet("SampleOutput.parquet");
     }
