@@ -23,7 +23,6 @@ public class ParquetWriterUtilSpark {
                 .getOrCreate();
 
         Dataset<Row> peopleDF5 = spark.read().json(jsonFilePath3);
-
         peopleDF5.write().mode(SaveMode.Overwrite).parquet("SampleOutput.parquet");
 
     }
